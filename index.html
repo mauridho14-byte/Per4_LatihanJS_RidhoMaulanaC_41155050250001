@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan JavaScript - Sesi 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h3>Nama : Ridho Maulana C</h3>
+    <h3>NPM : 41155050250001</h3>
+    <h3>Kelas : A</h3>
+    <!-- Latihan 1: Interaksi DOM & Variabel -->
+    <div class="card">
+        <h3>1.Ubah Teks (DOM Manipulation)</h3>
+        <p id="teks-ubah">Teks ini akan berubah ketika Anda menekan tombol di bawah.</p>
+        <button onclick="ubahTeks()">Klik untuk Ubah Teks</button>
+    </div>
+
+    <!-- Latihan 2: Kalkulator Sederhana (Fungsi & Operator) -->
+    <div class="card">
+        <h3>2.Kalkulator Pertambahan</h3>
+        <input type="number" id="angka1" placeholder="Angka pertama"> +
+        <input type="number" id="angka2" placeholder="Angka kedua">
+        <button onclick="hitungTambah()">Hitung</button>
+        <p>Hasil: <span id="hasil-hitung">-</span></p>
+    </div>
+
+    <!-- Latihan 3: Menampilkan Array / Daftar -->
+    <div class="card">
+        <h3>3.Daftar Buah (Array & Looping)</h3>
+        <button onclick="tampilkanBuah()">Tampilkan Daftar Buah</button>
+        <ul id="daftar-buah">
+            <!-- Daftar akan muncul di sini lewat Javascript -->
+        </ul>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // 1. Fungsi untuk Latihan 1
+        function ubahTeks() {
+            let elemen = document.getElementById("teks-ubah");
+            elemen.innerHTML = "Hore! Berhasil mengubah teks menggunakan JavaScript!";
+            elemen.style.color = "blue";
+        }
+
+        // 2. Fungsi untuk Latihan 2
+        function hitungTambah() {
+            let num1 = parseFloat(document.getElementById("angka1").value) || 0;
+            let num2 = parseFloat(document.getElementById("angka2").value) || 0;
+            let total = num1 + num2;
+            document.getElementById("hasil-hitung").innerHTML = total;
+        }
+
+        // 3. Fungsi untuk Latihan 3
+        function tampilkanBuah() {
+            let buah = ["Apel", "Pisang", "Mangga", "Jeruk", "Semangka"];
+            let listElement = document.getElementById("daftar-buah");
+            
+            // Bersihkan list sebelum diisi ulang
+            listElement.innerHTML = "";
+            
+            // Looping array menggunakan forEach
+            buah.forEach(function(item) {
+                let li = document.createElement("li");
+                li.innerHTML = item;
+                listElement.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>
